@@ -1,0 +1,169 @@
+html,
+body {
+    height: 100%;
+    background-image: url("../images/fundo.png");
+    font-family: 'aller_lightregular';
+}
+
+.tipo-evento {
+    margin-top: 35px;
+    margin-bottom: 35px; 
+}
+
+a{    
+    color: #DC9B7B !important;
+}
+
+a:hover{
+    background-color: transparent !important;
+    color: #6D5A19 !important;   
+}
+
+p{
+    margin: 25px -10px !important;
+}
+
+.topo{
+    color: #DC9B7B; 
+}
+
+.info-topo{
+    margin-top: 50px;
+}
+
+.page-header{
+    margin-top: 20px;
+    padding-left:  50px;
+    color: #DC9B7B !important; 
+}
+
+.telefone{   
+    font-size: 26px;    
+}
+
+.menu-horizontal{ 
+    margin-top: 100px;
+    margin-left: 30px;
+    font-weight: bold;
+}
+
+.menu-horizontal li{  
+    text-align: center; 
+}
+
+header.carousel {
+    height: 65%;
+}
+
+header.carousel .item,
+header.carousel .item.active,
+header.carousel .carousel-inner {
+    height: 100%;
+}
+
+header.carousel .fill {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+footer { 
+    background-image: url("../images/bg-rodape.jpg");
+}
+
+.info-rodape{
+    color: #FFF;
+    padding-top: 50px;
+    padding-bottom: 50px;    
+}
+
+.conteudo{
+    color: #6D5A19 !important;
+    padding: 20px 35px 50px 35px; 
+}
+
+.endereco-contato{   
+    text-align: center;  
+    padding-top: 20px;
+    padding-bottom: 20px; 
+}
+
+.horario-contato{  
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px; 
+}
+
+.telefone-contato{         
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px; 
+}
+
+.logo-rodape{   
+    margin-top: -15px;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 30px; 
+}
+
+.endereco-rodape{   
+    text-align: center;  
+    padding-top: 40px;
+    padding-bottom: 40px; 
+}
+
+.horario-rodape{  
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px; 
+}
+
+.contato-rodape{       
+    margin-top: -10px !important;    
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px; 
+}
+
+.contato-rodape img{    
+    margin-top: 10px !important;
+}
+
+@media(max-width:991px) {
+    .customer-img,
+    .img-related {
+        margin-bottom: 30px;
+    }
+
+    .menu-horizontal li{  
+        font-size: 16px;
+    }
+}
+
+@media(max-width:767px) {
+
+    .menu-horizontal{ 
+        margin-top: 100px;
+        margin-left: 0px;
+        font-weight: bold;
+    }
+
+    .menu-horizontal li{  
+        font-size: 28px;
+    }
+
+
+    header.carousel .carousel {
+        height: 70%;
+    }
+}
+
+@font-face {
+    font-family: 'aller_lightregular';
+    src: url('aller_lt_3.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
