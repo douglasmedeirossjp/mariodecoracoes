@@ -60,10 +60,12 @@
 <script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/forms/validation/jquery.validate.js"></script>
 <script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/forms/validation/additional-methods.min.js"></script>
 <script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/forms/validation/localization/messages_pt_BR.js"></script>
+<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/forms/tinymce/tinymce.min.js"></script>
 <script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/misc/highlight/highlight.pack.js"></script>
 <script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/misc/countTo/jquery.countTo.js"></script>
 <script src="<?= URL_PAINEL; ?>views/_arquivos/assets/js/jquery.sprFlat.js"></script>
 <script src="<?= URL_PAINEL; ?>views/_arquivos/assets/js/app.js"></script> 
+<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/js/pages/wysiwyg.js"></script>
 <script src="<?= URL_PAINEL; ?>views/_arquivos/assets/js/pages/form-validation.js"></script>
 </body>
 </html>

@@ -104,10 +104,9 @@ class MVC {
         if (!class_exists($this->controlador)) {
             // Página não encontrada
             require_once ABSPATH . $this->not_found;
-
-            // FIM :)
             return;
         } // class_exists
+        
         // Cria o objeto da classe do controlador e envia os parâmentros
         $this->controlador = new $this->controlador($this->parametros, $this->controlador);
 
@@ -127,7 +126,7 @@ class MVC {
             $this->controlador->index($this->parametros);
             return;
         }
-
+ 
         //Se existe a controladora página, executa o método 'index' e passa por parametro a acao
         // Exemplo: Pagina/Empresa  (index.php?pagina=empresa)
         if (method_exists($this->controlador, 'index')) {

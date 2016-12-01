@@ -35,4 +35,3 @@ function __autoload($class_name) {
 
 // Carrega a aplicação
 $mvc = new MVC();
-

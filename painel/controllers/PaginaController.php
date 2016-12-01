@@ -12,32 +12,52 @@ class PaginaController extends MainController {
         try {
 
             $dao = new PaginaDAO();
+
             $lista = $dao->BuscarTodos();
+
             $this->ViewBag->lista = $lista;
-            
         } catch (Exception $ex) {
             $this->ViewBag->Exception = $ex;
         }
 
         $this->carregarView("index");
     }
- 
+
     public function editar() {
 
-        $this->ViewBag->titulo = "Editar Banner";
+        $this->ViewBag->titulo = "Editar Página";
 
-        $dao = new BannerDAO();
+        $id = $this->parametros[0];
 
-        $dao->Editar($banner);
+        try {
 
-        $this->carregarView("editar");
+            $dao = new PaginaDAO();
+
+            $pagina = $dao->BuscarPorID($id);
+
+            $this->ViewBag->pagina = $pagina;
+            
+        } catch (Exception $ex) {
+            $this->ViewBag->Exception = $ex;
+        }
+
+        $this->carregarView("editar", "Form");
     }
 
-    public function excluir() {
+    public function salvar() {
 
-        $this->ViewBag->titulo = "Excluir Banner";
+        $pagina = new Pagina();
 
-        $this->carregarView("excluir");
+        $pagina->id = $this->parametros['id'];
+        $pagina->titulo = $this->parametros['titulo'];
+        $pagina->titulo_menu = $this->parametros['titulo_menu'];
+        $pagina->url_amigavel = $this->parametros['url_amigavel'];
+        $pagina->conteudo = $this->parametros['conteudo'];
+        $pagina->ativo = $this->parametros['ativo'];
+
+        $dao = new PaginaDAO();
+
+        $dao->Editar($pagina);
     }
 
 }
