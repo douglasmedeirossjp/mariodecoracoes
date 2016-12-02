@@ -1,5 +1,24 @@
 <?php if (!defined('ABSPATH')) exit; ?>
-
+<!--
+ <ol class="carousel-indicators">
+        <?php foreach ($this->ViewBag->banners as $key => $value) { ?>
+            <li data-target="#myCarousel<?= $value->id; ?>" data-slide-to="<?= $value->id; ?>"></li>
+        <?php } ?> 
+    </ol> 
+    <div class="carousel-inner">
+        <?php foreach ($this->ViewBag->banners as $key => $value) { ?>
+            <div class="item active">
+                <?php if ($value->link != "" && $value->link != "#") { ?>
+                    <a href="<?= $value->link ;?>">
+                        <div class="fill" style="background-image:url('<?= $value->imagem; ?>');" title="<?= $value->titulo; ?>"></div>
+                    </a> 
+                <?php } else { ?> 
+                    <div class="fill" style="background-image:url('<?= $value->imagem; ?>');" title="<?= $value->titulo; ?>"></div>
+                <?php } ?> 
+            </div>
+        <?php } ?>  
+    </div>
+-->
 <header id="myCarousel" class="carousel slide">
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>

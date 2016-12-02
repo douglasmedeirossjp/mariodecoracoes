@@ -14,6 +14,7 @@ class BannerController extends MainController {
             $dao = new BannerDAO();
             $lista = $dao->BuscarTodos();
             $this->ViewBag->lista = $lista;
+            
         } catch (Exception $ex) {
             $this->ViewBag->Exception = $ex;
         }
@@ -29,25 +30,16 @@ class BannerController extends MainController {
 
             try {
 
-                $path = ABSPATH . "/views/_arquivos/uploads/banner/";
+                $dao = new BannerDAO();
+                
+                $banner = new Banner();
+                $banner->titulo = $this->parametros["titulo"];
+                $banner->imagem = $this->parametros["imagem"];
+                $banner->link = $this->parametros["link"];
+                $banner->ordem = $dao->BuscarOrdenacao();
+                $banner->ativo = $this->parametros["ativo"];
 
-                $uploadfile = $path . $_FILES['file']['name'];
-
-                if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
-
-                    $dao = new BannerDAO();
-                    $banner = new Banner();
-
-                    $banner->titulo = $this->parametros["titulo"];
-                    $banner->imagem = $_FILES['file']['name'];
-                    $banner->link = $this->parametros["link"];
-                    $banner->ordem = $dao->BuscarOrdenacao();
-                    $banner->ativo = $this->parametros["ativo"];
-
-                    $dao->Cadastrar($banner);
-                } else {
-                    $this->ViewBag->Exception = "Arquivo não enviado, tente novamente!";
-                }
+                $dao->Cadastrar($banner);
                 
             } catch (Exception $ex) {
                 $this->ViewBag->Exception = $ex;
