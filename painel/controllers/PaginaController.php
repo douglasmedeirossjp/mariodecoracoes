@@ -58,6 +58,8 @@ class PaginaController extends MainController {
         $dao = new PaginaDAO();
 
         $dao->Editar($pagina);
+        
+        $this->goto_page(URL_PAINEL."pagina/editar/".$pagina->id);
     }
 
 }

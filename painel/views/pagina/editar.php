@@ -36,7 +36,7 @@ $pagina = $this->ViewBag->pagina;
     <div class="form-group">
         <label class="col-lg-2 col-md-2 col-sm-12 control-label"> Conteúdo:  </label>
         <div class="col-lg-8 col-md-8">
-            <textarea name="conteudo" id="texteditor" class="form-control tinymce" rows="20"><?= $pagina->conteudo; ?></textarea>
+            <textarea name="conteudo" id="editor1" class="form-control"><?= $pagina->conteudo; ?></textarea>
         </div>
     </div>
 
@@ -57,7 +57,16 @@ $pagina = $this->ViewBag->pagina;
         </div>
     </div>
 
-</form>
-
- 
- 
+</form> 
+<script src="<?= HOME_URL ?>repositorio/arquivos/editor/ckeditor/ckeditor.js" type="text/javascript"></script>
+<script src="<?= HOME_URL ?>repositorio/arquivos/editor/ckfinder/ckfinder.js" type="text/javascript"></script>
+ <script>
+CKEDITOR.replace( 'editor1', {
+    filebrowserBrowseUrl: '<?= HOME_URL ?>repositorio/arquivos/editor/ckfinder/ckfinder.html',
+    filebrowserImageBrowseUrl: '<?= HOME_URL ?>repositorio/arquivos/editor/ckfinder/ckfinder.html?Type=Images',
+    filebrowserUploadUrl: '<?= HOME_URL ?>repositorio/arquivos/editor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+    filebrowserImageUploadUrl: '<?= HOME_URL ?>repositorio/arquivos/editor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+    filebrowserWindowWidth : '1000',
+    filebrowserWindowHeight : '700'
+});
+</script>
