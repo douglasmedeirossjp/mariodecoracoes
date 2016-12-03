@@ -1,10 +1,7 @@
 <?php if (!defined('ABSPATH')) exit; ?>
 
-
-
-
-
 <a href="<?=URL_PAINEL;?>banner/cadastrar" class="btn btn-primary">Cadastrar</a> <hr />
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -40,7 +37,6 @@
         </tr>
 
 <?php } ?>
-        
         
     </tbody> 
 </table> 

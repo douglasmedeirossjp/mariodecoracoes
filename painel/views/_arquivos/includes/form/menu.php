@@ -31,6 +31,9 @@
             <li>
                 <a href="<?= URL_PAINEL ?>pagina/">Páginas <i class="st-files"></i></a> 
             </li> 
+            <li>
+                <a href="<?= URL_PAINEL ?>informacao/">Informação <i class="im-info"></i></a> 
+            </li> 
         </ul> 
     </div> 
 </div> 

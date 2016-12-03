@@ -1,36 +1,43 @@
 <?php if (!defined('ABSPATH')) exit; ?>
-<!--
- <ol class="carousel-indicators">
-        <?php foreach ($this->ViewBag->banners as $key => $value) { ?>
-            <li data-target="#myCarousel<?= $value->id; ?>" data-slide-to="<?= $value->id; ?>"></li>
-        <?php } ?> 
+
+<header id="myCarousel" class="carousel slide">
+    <ol class="carousel-indicators">
+        <?php
+        $cont = 0;
+        foreach ($this->ViewBag->banners as $key => $value) {
+            ?>            
+            <li data-target="#myCarousel" data-slide-to="<?= $cont; ?>" <?php
+            if ($cont == 0) {
+                echo "class='active'";
+            }
+            ?>></li>
+                <?php
+                $cont++;
+            }
+            ?>  
     </ol> 
-    <div class="carousel-inner">
-        <?php foreach ($this->ViewBag->banners as $key => $value) { ?>
-            <div class="item active">
-                <?php if ($value->link != "" && $value->link != "#") { ?>
-                    <a href="<?= $value->link ;?>">
+    <div class="carousel-inner"> 
+        <?php
+        $cont = 0;
+        foreach ($this->ViewBag->banners as $key => $value) {
+            ?>
+            <div class="item <?php
+            if ($cont == 0) {
+                echo "active";
+            }
+            ?>">
+                     <?php if ($value->link != "" && $value->link != "#") { ?>
+                    <a href="<?= $value->link; ?>">
                         <div class="fill" style="background-image:url('<?= $value->imagem; ?>');" title="<?= $value->titulo; ?>"></div>
                     </a> 
                 <?php } else { ?> 
                     <div class="fill" style="background-image:url('<?= $value->imagem; ?>');" title="<?= $value->titulo; ?>"></div>
                 <?php } ?> 
             </div>
-        <?php } ?>  
-    </div>
--->
-<header id="myCarousel" class="carousel slide">
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li> 
-    </ol> 
-    <div class="carousel-inner">
-        <div class="item active">
-            <div class="fill" style="background-image:url('<?= HOME_URL; ?>views/_arquivos/images/banner.jpg');"></div>                     
-        </div>
-        <div class="item">
-            <div class="fill" style="background-image:url('<?= HOME_URL; ?>views/_arquivos/images/banner.jpg');"></div>                    
-        </div>                
+            <?php
+            $cont++;
+        }
+        ?>                    
     </div>
     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
         <span class="icon-prev"></span>

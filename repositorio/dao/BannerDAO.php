@@ -19,7 +19,9 @@ class BannerDAO extends DAO{
                     "SELECT * FROM banner WHERE id = ? LIMIT 1", array($id)
             );
 
-            return $banner->ToObject($query);
+            foreach ($query->fetchAll() as $value) {
+                $banner->ToObject($value);                
+            }
             
         } catch (Exception $ex) {            
             return $ex;           
@@ -39,6 +41,34 @@ class BannerDAO extends DAO{
         try {
 
             $query = $this->db->query("SELECT * FROM banner ORDER BY id DESC");
+
+            foreach ($query->fetchAll() as $value) {
+
+                $banner = new Banner();
+                
+                $banner->ToObject($value);
+
+                $lista->append($banner);
+            }
+            
+        } catch (Exception $ex) {            
+            return $ex;           
+        }
+
+        return $lista;
+    }
+    
+    /**
+     * 
+     * @return \Exception|\ArrayObject
+     */
+    public function BuscarTodosAtivos() {
+
+        $lista = new ArrayObject();
+
+        try {
+
+            $query = $this->db->query("SELECT * FROM banner WHERE ativo = 'S' ORDER BY id DESC");
 
             foreach ($query->fetchAll() as $value) {
 

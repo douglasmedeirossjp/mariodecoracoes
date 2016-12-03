@@ -1,4 +1,8 @@
-<?php if (!defined('ABSPATH')) exit; ?>
+<?php if (!defined('ABSPATH')) exit; 
+require_once ABSPATH_REPOSITORIO . '/dao/InformacaoDAO.php';
+$dao = new InformacaoDAO();
+$informacao = $dao->BuscarInformacao();
+?>
 <div class="container topo">
     <div class="row"> 
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 text-center">
@@ -21,7 +25,7 @@
                 <img src="<?= HOME_URL; ?>views/_arquivos/images/face.png" width="70" />
             </div>
             <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12 text-center">
-                41 <span class="telefone"> 3283-6165 </span>
+                41 <span class="telefone"> <?= $informacao->telefone; ?>  </span>
             </div>
         </div> 
     </div>

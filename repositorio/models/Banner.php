@@ -7,6 +7,7 @@ class Banner extends MainModel {
     public $titulo;
     public $link;
     public $ordem;
+    public $novaguia;
     public $ativo;
     
     /*

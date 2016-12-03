@@ -28,7 +28,12 @@ class PaginaController extends MainController {
         $this->ViewBag->titulo = "Editar Página";
 
         $id = $this->parametros[0];
-
+         
+        
+        if(!empty($this->parametros[1]) && $this->parametros[1] == "true"){            
+            $this->ViewBag->Msg = "Página atualizada com sucesso!";
+        } 
+        
         try {
 
             $dao = new PaginaDAO();
@@ -38,7 +43,8 @@ class PaginaController extends MainController {
             $this->ViewBag->pagina = $pagina;
             
         } catch (Exception $ex) {
-            $this->ViewBag->Exception = $ex;
+            
+            $this->ViewBag->Exception = $ex->getMessage();
         }
 
         $this->carregarView("editar", "Form");
@@ -59,7 +65,7 @@ class PaginaController extends MainController {
 
         $dao->Editar($pagina);
         
-        $this->goto_page(URL_PAINEL."pagina/editar/".$pagina->id);
+        $this->goto_page(URL_PAINEL."pagina/editar/" . $pagina->id . "/true");
     }
 
 }
