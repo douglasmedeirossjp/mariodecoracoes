@@ -29,13 +29,18 @@ $informacao = $this->ViewBag->informacao;
 
     <div class="form-group">
         <label class="col-lg-2 col-md-2 col-sm-12 control-label"> Telefone:  </label>
-        <div class="col-lg-3 col-md-3">
-            <input type="text" name="telefone" id="telefone" class="form-control" required="required" maxlength="20" value="<?= $informacao->telefone; ?>">
+        <div class="col-lg-1 col-md-1">
+            <input type="text" name="ddd" id="ddd" class="form-control" required="required" maxlength="20" placeholder="41" value="<?= $informacao->ddd; ?>">
         </div>
-
+        <div class="col-lg-2 col-md-2">
+            <input type="text" name="telefone" id="telefone" class="form-control" required="required" maxlength="20" placeholder="3333-3333" value="<?= $informacao->telefone; ?>">
+        </div>
         <label class="col-lg-2 col-md-2 col-sm-12 control-label"> Celular:  </label>
-        <div class="col-lg-3 col-md-3">
-            <input type="text" name="celular" id="celular" class="form-control" maxlength="20" value="<?= $informacao->celular; ?>">
+        <div class="col-lg-1 col-md-1">
+            <input type="text" name="dddc" id="dddc" class="form-control" maxlength="20" placeholder="41" value="<?= $informacao->dddc ?>">
+        </div>
+        <div class="col-lg-2 col-md-2">
+            <input type="text" name="celular" id="celular" class="form-control" maxlength="20" placeholder="99999-9999" value="<?= $informacao->celular; ?>">
         </div>
     </div>
 

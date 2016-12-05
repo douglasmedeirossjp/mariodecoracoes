@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 03-Dez-2016 às 05:18
+-- Generation Time: 05-Dez-2016 às 21:51
 -- Versão do servidor: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -49,12 +49,73 @@ INSERT INTO `banner` (`id`, `imagem`, `titulo`, `link`, `ordem`, `novaguia`, `at
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `categoria`
+--
+
+CREATE TABLE `categoria` (
+  `id` int(11) NOT NULL,
+  `titulo` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `url_amigavel` varchar(150) COLLATE latin1_general_ci NOT NULL,
+  `ativo` char(1) COLLATE latin1_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Extraindo dados da tabela `categoria`
+--
+
+INSERT INTO `categoria` (`id`, `titulo`, `url_amigavel`, `ativo`) VALUES
+(1, 'Recepção', 'recepcao', 'S'),
+(2, 'Cerimônia', 'cerimonia', 'S'),
+(3, 'Buquê', 'buque', 'S');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `fotos`
+--
+
+CREATE TABLE `fotos` (
+  `id` int(11) NOT NULL,
+  `imagem` varchar(255) COLLATE latin1_general_ci NOT NULL,
+  `galeria` int(11) NOT NULL,
+  `ordem` int(11) NOT NULL,
+  `ativo` char(1) COLLATE latin1_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `galeria`
+--
+
+CREATE TABLE `galeria` (
+  `id` int(11) NOT NULL,
+  `titulo` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `descricao` text COLLATE latin1_general_ci NOT NULL,
+  `pasta` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `ordem` int(11) NOT NULL,
+  `categoria` int(11) NOT NULL,
+  `ativo` char(1) COLLATE latin1_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Extraindo dados da tabela `galeria`
+--
+
+INSERT INTO `galeria` (`id`, `titulo`, `descricao`, `pasta`, `ordem`, `categoria`, `ativo`) VALUES
+(1, 'Casamento Fabiely e Douglas', 'Casamento Fabiely e Douglas - 06/08/2016', 'casamento-fd', 1, 1, 'S');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `informacao`
 --
 
 CREATE TABLE `informacao` (
   `id` int(11) NOT NULL,
+  `ddd` varchar(20) COLLATE latin1_general_ci NOT NULL,
   `telefone` varchar(20) COLLATE latin1_general_ci NOT NULL,
+  `dddc` varchar(20) COLLATE latin1_general_ci NOT NULL,
   `celular` varchar(20) COLLATE latin1_general_ci NOT NULL,
   `endereco` varchar(255) COLLATE latin1_general_ci NOT NULL,
   `numero` varchar(20) COLLATE latin1_general_ci NOT NULL,
@@ -73,8 +134,8 @@ CREATE TABLE `informacao` (
 -- Extraindo dados da tabela `informacao`
 --
 
-INSERT INTO `informacao` (`id`, `telefone`, `celular`, `endereco`, `numero`, `bairro`, `cidade`, `estado`, `horario_atendimento`, `email`, `googlemaps`, `mensagem_contato`, `facebook`, `instagram`) VALUES
-(1, '3283-6165', '', 'Rua Voluntários da Pátria', '344', 'Centro', 'São José dos Pinhais', 'PR', 'Segunda à sexta das 8h às 18h', 'contato@mariodecoracoes.com.br', '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1799.98689859175!2d-49.20469395862485!3d-25.539249720018113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dcfa075a2e1e73%3A0xa17e276a7867dea4!2zTWFyaW8gRGVjb3Jhw6fDtWVz!5e0!3m2!1spt-BR!2sbr!4v1480737696471" width="100%" height="850" frameborder="0" style="border:0" allowfullscreen></iframe>', '<p>Agende um hor&aacute;rio conosco e solicite um or&ccedil;amento sem compromisso.</p>\r\n', 'http://www.facebook.com.br/mariodecoracoes', 'http://www.instagram.com/mariodecoracoes');
+INSERT INTO `informacao` (`id`, `ddd`, `telefone`, `dddc`, `celular`, `endereco`, `numero`, `bairro`, `cidade`, `estado`, `horario_atendimento`, `email`, `googlemaps`, `mensagem_contato`, `facebook`, `instagram`) VALUES
+(1, '41', '3283-6165', '', '', 'Rua Voluntários da Pátria', '344', 'Centro', 'São José dos Pinhais', 'PR', 'Segunda à sexta das 8h às 18h', 'contato@mariodecoracoes.com.br', '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1799.98689859175!2d-49.20469395862485!3d-25.539249720018113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dcfa075a2e1e73%3A0xa17e276a7867dea4!2zTWFyaW8gRGVjb3Jhw6fDtWVz!5e0!3m2!1spt-BR!2sbr!4v1480737696471" width="100%" height="850" frameborder="0" style="border:0" allowfullscreen></iframe>', '<p>Agende um hor&aacute;rio conosco e solicite um or&ccedil;amento sem compromisso.</p>\r\n', 'http://www.facebook.com.br/mariodecoracoes', 'http://www.instagram.com/mariodecoracoes');
 
 -- --------------------------------------------------------
 
@@ -96,7 +157,7 @@ CREATE TABLE `pagina` (
 --
 
 INSERT INTO `pagina` (`id`, `titulo`, `titulo_menu`, `url_amigavel`, `conteudo`, `ativo`) VALUES
-(1, 'Empresa', 'Empresa', 'empresa', '<p><img alt="" src="http://localhost/mariodecoracoes/repositorio/arquivos/enviados/ckfinder/images/13962743_1071898222892220_3503984245799545611_n.jpg" style="border-style:solid; border-width:0px; float:left; height:263px; margin:0px 10px; width:350px" />Mario Decora&ccedil;&otilde;es j&aacute; atua no mercado de Festas h&aacute; muitos anos, atendendo toda Curitiba e regi&atilde;o Metropolitana.</p>\r\n\r\n<p>Especialista em criar decora&ccedil;&otilde;es, com id&eacute;ias e estilos variados, sugerindo op&ccedil;&otilde;es para que seu evento seja um sucesso.</p>\r\n\r\n<p>Sempre prezando pela satisfa&ccedil;&atilde;o dos clientes, oferecendo produtos e servi&ccedil;os de qualidade, profissionais qualificados e muito bom gosto.</p>\r\n\r\n<p>Agende um hor&aacute;rio conosco, e solicite um or&ccedil;amento sem compromisso.</p>\r\n', 'S'),
+(1, 'Empresa', 'Empresa', 'empresa', '<p>Mario Decora&ccedil;&otilde;es j&aacute; atua no mercado de Festas h&aacute; muitos anos, atendendo toda Curitiba e regi&atilde;o Metropolitana.</p>\r\n\r\n<p>Especialista em criar decora&ccedil;&otilde;es, com id&eacute;ias e estilos variados, sugerindo op&ccedil;&otilde;es para que seu evento seja um sucesso.</p>\r\n\r\n<p>Sempre prezando pela satisfa&ccedil;&atilde;o dos clientes, oferecendo produtos e servi&ccedil;os de qualidade, profissionais qualificados e muito bom gosto.</p>\r\n\r\n<p>Agende um hor&aacute;rio conosco, e solicite um or&ccedil;amento sem compromisso.</p>\r\n', 'S'),
 (2, 'Serviços', 'Serviços', 'servicos', '<p>Atendemos os mais variados eventos, criamos arranjos diversos com flores naturais.&nbsp;<br />\r\n<br />\r\nNossas especialidades s&atilde;o:<br />\r\n<br />\r\n- Casamentos;&nbsp;<br />\r\n- 15 anos;<br />\r\n- Formatura;<br />\r\n- Ambienta&ccedil;&atilde;o;&nbsp;<br />\r\n- Eventos em Geral;&nbsp;<br />\r\n<br />\r\nConhe&ccedil;a um pouco mais de nossos servi&ccedil;os em nossa galeria de imagens<strong>.</strong></p>\r\n', 'S');
 
 -- --------------------------------------------------------
@@ -143,7 +204,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `login`, `nome`, `senha`, `email`, `perfil`, `ultimoLogin`, `tokenLogin`, `validadeToken`, `status`) VALUES
-(1, 'douglas.medeiros', 'Douglas Adriano de Medeiros', '$2a$08$2sGQinTFe3GF/YqAYQ66auL9o6HeFCQryHdqUDvuEVN0J1vdhimii', 'douglas.medeiross@gmail.com', 1, '2016-12-03 01:32:08 em ::1', '$2a$08$GuIXRlFyAb0Y.ekqQc.PAe3J0cGm4uCl7GphNJqZuwBOzHFDuxk5a', '2016-12-03 02:42:33', 'A'),
+(1, 'douglas.medeiros', 'Douglas Adriano de Medeiros', '$2a$08$2sGQinTFe3GF/YqAYQ66auL9o6HeFCQryHdqUDvuEVN0J1vdhimii', 'douglas.medeiross@gmail.com', 1, '2016-12-05 17:24:40 em ::1', '$2a$08$PAQB17hT0v9/XEanbs0XZ.hC9Rez8r0faTX/OmvNvf6WkCamgvf4y', '2016-12-05 18:38:34', 'A'),
 (2, 'mariodecoracoes', 'Mário Decorações', '$2a$08$2sGQinTFe3GF/YqAYQ66auL9o6HeFCQryHdqUDvuEVN0J1vdhimii', 'contato@mariodecoracoes.com.br', 1, '2016-10-18 23:22:48 em ::1', NULL, NULL, 'A');
 
 --
@@ -154,6 +215,24 @@ INSERT INTO `usuario` (`id`, `login`, `nome`, `senha`, `email`, `perfil`, `ultim
 -- Indexes for table `banner`
 --
 ALTER TABLE `banner`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `categoria`
+--
+ALTER TABLE `categoria`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `fotos`
+--
+ALTER TABLE `fotos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `galeria`
+--
+ALTER TABLE `galeria`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -189,6 +268,21 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `banner`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `categoria`
+--
+ALTER TABLE `categoria`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `fotos`
+--
+ALTER TABLE `fotos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `galeria`
+--
+ALTER TABLE `galeria`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `informacao`
 --

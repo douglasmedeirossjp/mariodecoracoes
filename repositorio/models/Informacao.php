@@ -14,7 +14,9 @@
 class Informacao extends MainModel {
 
     public $id;
+    public $ddd;
     public $telefone;
+    public $dddc;
     public $celular;
     public $endereco;
     public $numero;

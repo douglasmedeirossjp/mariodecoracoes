@@ -30,19 +30,12 @@ $informacao = $dao->BuscarInformacao();
 
                 <img src="<?= HOME_URL; ?>views/_arquivos/images/icone-contato.png" width="35" align="left" />
 
-                41 <span class="telefone"><?= $informacao->telefone; ?> </span><br />                 
+                <?= $informacao->ddd; ?> <span class="telefone"><?= $informacao->telefone; ?> </span><br />                 
                 <?= $informacao->email; ?>
 
             </div>                    
         </div>
     </div>
-</footer> 
-<script src="<?= HOME_URL; ?>views/_arquivos/js/jquery.js"></script>
-<script src="<?= HOME_URL; ?>views/_arquivos/js/bootstrap.min.js"></script>
-<script>
-    $('.carousel').carousel({
-        interval: 5000
-    });
-</script> 
+</footer>  
 </body> 
 </html>

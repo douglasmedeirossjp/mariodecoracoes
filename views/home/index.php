@@ -59,3 +59,11 @@
         </div>
     </div> 
 </div> 
+
+<script src="<?= HOME_URL; ?>views/_arquivos/js/jquery.js"></script>
+<script src="<?= HOME_URL; ?>views/_arquivos/js/bootstrap.min.js"></script>
+<script>
+    $('.carousel').carousel({
+        interval: 5000
+    });
+</script> 

@@ -31,7 +31,7 @@ $informacao = $dao->BuscarInformacao();
                 
                 <img src="<?= HOME_URL; ?>views/_arquivos/images/icone-contato.png" width="35" align="left" />
 
-                41 <b><?= $informacao->telefone; ?></b><br />                 
+                <?= $informacao->ddd; ?> <b><?= $informacao->telefone; ?></b><br />                 
                 <?= $informacao->email; ?>
 
             </div>   

@@ -25,7 +25,7 @@ $informacao = $dao->BuscarInformacao();
                 <img src="<?= HOME_URL; ?>views/_arquivos/images/face.png" width="70" />
             </div>
             <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12 text-center">
-                41 <span class="telefone"> <?= $informacao->telefone; ?>  </span>
+                <?= $informacao->ddd; ?> <span class="telefone"> <?= $informacao->telefone; ?>  </span>
             </div>
         </div> 
     </div>

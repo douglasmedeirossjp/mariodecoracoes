@@ -26,6 +26,8 @@
                     </li>
                     <li><a href="<?= URL_PAINEL ?>galeria/"><i class="en-list"></i> Listar Galerias</a>
                     </li>
+                    <li><a href="<?= URL_PAINEL ?>categoria"><i class="en-list"></i> Categorias </a>
+                    </li>
                 </ul>
             </li>
             <li>

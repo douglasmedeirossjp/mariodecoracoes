@@ -34,7 +34,9 @@ class InformacaoController extends MainController {
         $informacao = new Informacao();        
        
         $informacao->id = $this->parametros['id']; 
+        $informacao->ddd = $this->parametros['ddd']; 
         $informacao->telefone = $this->parametros['telefone']; 
+        $informacao->dddc = $this->parametros['dddc']; 
         $informacao->celular = $this->parametros['celular']; 
         $informacao->endereco = $this->parametros['endereco']; 
         $informacao->numero = $this->parametros['numero']; 

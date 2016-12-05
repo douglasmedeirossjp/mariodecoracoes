@@ -112,6 +112,8 @@ class MVC {
 
         // Remove caracteres inválidos do nome da ação (método)
         $this->acao = preg_replace('/[^a-zA-Z]/i', '', $this->acao);
+        
+       // echo $this->acao;
 
         // Se o método indicado existir, executa o método e envia os parâmetros        
         //Exemplo: Pagina/Index        

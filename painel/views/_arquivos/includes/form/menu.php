@@ -1,5 +1,5 @@
 <?php if (!defined('ABSPATH')) exit; ?>
- 
+
 <div id="sidebar"> 
     <div class="sidebar-inner"> 
         <ul id="sideNav" class="nav nav-pills nav-stacked">
@@ -25,6 +25,8 @@
                     <li><a href="<?= URL_PAINEL ?>galeria/cadastrar"><i class="ec-pencil"></i> Cadastrar Galeria </a>
                     </li>
                     <li><a href="<?= URL_PAINEL ?>galeria/"><i class="en-list"></i> Listar Galerias</a>
+                    </li>
+                    <li><a href="<?= URL_PAINEL ?>categoria"><i class="en-list"></i> Categorias </a>
                     </li>
                 </ul>
             </li>
