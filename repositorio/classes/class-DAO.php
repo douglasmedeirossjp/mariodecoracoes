@@ -4,6 +4,7 @@ class DAO {
 
     public $db;
     public $phpass;
+    public $last_id;
 
     public function __construct() {
         $this->db = new DB();
@@ -13,19 +14,13 @@ class DAO {
     public function Cadastrar($object) {
         if (is_object($object)) {
             $this->db->insert($object);
+            $this->last_id = $this->db->last_id;
         }
     }
 
-    public function Editar($object) {
+    public function Editar($object) { 
         if (is_object($object)) {
             return $this->db->update($object);
         }
-    }
-    
-    public function Deletar($object) {
-        if (is_object($object)) {
-            return $this->db->delete($object);
-        }
-    }
-
+    } 
 }

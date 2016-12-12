@@ -81,7 +81,7 @@ class DB {
             $continua = false;
             // percorre o objeto buscando o nome da coluna e o valor
             foreach ($object as $key => $value) {
-                if (!is_null($value)) { 
+                if (!is_null($value)) {
                     $continua = true;
                     $colunas[] = $key;
                     $valores[] = $value;
@@ -101,10 +101,10 @@ class DB {
                     if ($this->pdo->lastInsertId()) {
                         $this->last_id = $this->pdo->lastInsertId();
                     }
-                    return true;  
-                }else{
+                    return true;
+                } else {
                     return $this->error;
-                } 
+                }
             }
 
             return;
@@ -150,18 +150,12 @@ class DB {
 
                 $query = $this->query("UPDATE " . $tabela . " SET " . $colunas_update . " WHERE " . $colunas[0] . " = ? ", $valores_update);
 
-                if($query){
+                if ($query) {
                     return true;
                 } else {
                     return $this->error;
-                }               
+                }
             }
         }
-    }
-
-    public function delete($object) {
-
-        return;
-    }
-
+    } 
 }

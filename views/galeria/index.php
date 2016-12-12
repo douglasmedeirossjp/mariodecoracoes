@@ -4,83 +4,85 @@
 <link href="<?= URL_PAINEL ?>views/_arquivos/assets/css/plugins.css" rel="stylesheet" /> 
 
 <div class="container"> 
-    <div class="row">         
-        <h3 class="page-header">Galeria</h3> 
+    <div class="row">   
+
+        <?php if ($this->ViewBag->galeria->titulo != "") { ?> 
+
+            <h3 class="page-header"><?= $this->ViewBag->galeria->titulo; ?></h3> 
+
+        <?php } else if ($this->ViewBag->categoria->titulo != "") { ?>
+
+            <h3 class="page-header"><?= $this->ViewBag->categoria->titulo; ?></h3> 
+
+        <?php } else { ?>
+
+            <h3 class="page-header">Galeria de Fotos</h3>   
+
+        <?php } ?>  
+
     </div> 
     <div class="row conteudo">         
         <div class="col-lg-12 col-md-12">
             <div class="row">
                 <div class="gallery">
                     <div class="gallery-toolbar">
-                        <div class="col-lg-12"> 
+                        <div class="col-lg-12">
 
-                            <?php foreach ($this->ViewBag->categorias as $value) { ?>
-                                <a href="<?= HOME_URL ?>galeria/<?= $value->url_amigavel ?>/" class="btn btn-default"><?= $value->titulo ?></a> 
-                            <?php } ?>
-                            <!--                            
-                            <button class="filter btn btn-primary btn-alt mr5" data-filter=".casamentos">Casamentos</button>
-                            <button class="filter btn btn-primary btn-alt mr5" data-filter=".aniversarios">Aniversários</button>       
-                            -->
+                            <?php if ($this->ViewBag->galeria->titulo == "") { ?> 
+
+                                <?php foreach ($this->ViewBag->categorias as $value) { ?>
+
+                                    <a href="<?= HOME_URL ?>galeria/<?= $value->url_amigavel ?>/" class="btn btn-default"><?= $value->titulo ?></a> 
+
+                                <?php } ?> 
+
+                            <?php } ?> 
+
                         </div>
                     </div>
                     <div class="gallery-inner">
-                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mix casamentos" data-my-order="1">
-                            <a href="<?= URL_PAINEL ?>views/_arquivos/assets/img/gallery/1.jpg" class="gallery-image-open thumbnail">
-                                <img src="<?= URL_PAINEL ?>views/_arquivos/assets/img/gallery/1.jpg" alt="image">
-                            </a>                           
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mix casamentos" data-my-order="1">
-                            <a href="<?= URL_PAINEL ?>views/_arquivos/assets/img/gallery/1.jpg" class="gallery-image-open thumbnail">
-                                <img src="<?= URL_PAINEL ?>views/_arquivos/assets/img/gallery/1.jpg" alt="image">
-                            </a>                           
-                        </div> <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mix casamentos" data-my-order="1">
-                            <a href="<?= URL_PAINEL ?>views/_arquivos/assets/img/gallery/1.jpg" class="gallery-image-open thumbnail">
-                                <img src="<?= URL_PAINEL ?>views/_arquivos/assets/img/gallery/1.jpg" alt="image">
-                            </a>                           
-                        </div> <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mix casamentos" data-my-order="1">
-                            <a href="<?= URL_PAINEL ?>views/_arquivos/assets/img/gallery/1.jpg" class="gallery-image-open thumbnail">
-                                <img src="<?= URL_PAINEL ?>views/_arquivos/assets/img/gallery/1.jpg" alt="image">
-                            </a>                           
-                        </div>    
 
-                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mix aniversarios" data-my-order="1">
-                            <a href="<?= URL_PAINEL ?>views/_arquivos/assets/img/gallery/1.jpg" class="gallery-image-open thumbnail">
-                                <img src="<?= URL_PAINEL ?>views/_arquivos/assets/img/gallery/1.jpg" alt="image">
-                            </a>                           
-                        </div>
+                        <?php foreach ($this->ViewBag->galerias as $item) { ?> 
 
-                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mix aniversarios" data-my-order="1">
-                            <a href="<?= URL_PAINEL ?>views/_arquivos/assets/img/gallery/1.jpg" class="gallery-image-open thumbnail">
-                                <img src="<?= URL_PAINEL ?>views/_arquivos/assets/img/gallery/1.jpg" alt="image">
-                            </a>                           
-                        </div>
+                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mix casamentos" data-my-order="1">
 
-                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mix aniversarios" data-my-order="1">
-                            <a href="<?= URL_PAINEL ?>views/_arquivos/assets/img/gallery/1.jpg" class="gallery-image-open thumbnail">
-                                <img src="<?= URL_PAINEL ?>views/_arquivos/assets/img/gallery/1.jpg" alt="image">
-                            </a>                           
-                        </div>
+                                <a href="<?= HOME_URL . "galeria/" . $item->categoria->url_amigavel . "/" . $item->url_amigavel; ?>" >
 
-                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mix aniversarios" data-my-order="1">
-                            <a href="<?= URL_PAINEL ?>views/_arquivos/assets/img/gallery/1.jpg" class="gallery-image-open thumbnail">
-                                <img src="<?= URL_PAINEL ?>views/_arquivos/assets/img/gallery/1.jpg" alt="image">
-                            </a>                           
-                        </div>
+                                    <h5><?= $item->titulo; ?></h5>
 
-                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mix aniversarios" data-my-order="1">
-                            <a href="<?= URL_PAINEL ?>views/_arquivos/assets/img/gallery/1.jpg" class="gallery-image-open thumbnail">
-                                <img src="<?= URL_PAINEL ?>views/_arquivos/assets/img/gallery/1.jpg" alt="image">
-                            </a>                           
-                        </div>
+                                    <img   class="gallery-image-open thumbnail" src="<?= HOME_URL . "repositorio/arquivos/enviados/galeria/" . $item->categoria->url_amigavel . "/" . $item->pasta . "/thumbs/" . $item->fotocapa->imagem ?>" alt="image" width="240" />
 
-                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mix aniversarios" data-my-order="1">
-                            <a href="<?= URL_PAINEL ?>views/_arquivos/assets/img/gallery/1.jpg" class="gallery-image-open thumbnail">
-                                <img src="<?= URL_PAINEL ?>views/_arquivos/assets/img/gallery/1.jpg" alt="image">
-                            </a>                           
-                        </div>
+                                </a>    
 
+                            </div>   
+
+                        <?php } ?> 
+
+                        <?php foreach ($this->ViewBag->galeria->fotos as $item) { ?> 
+
+                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" data-my-order="1" style="display: inline-block;">
+
+                                <a href="<?= HOME_URL . "repositorio/arquivos/enviados/galeria/" . $item->galeria->categoria->url_amigavel . "/" . $item->galeria->pasta . "/" . $item->imagem; ?>" class="gallery-image-open thumbnail">
+
+                                    <img src="<?= HOME_URL . "repositorio/arquivos/enviados/galeria/" . $item->galeria->categoria->url_amigavel . "/" . $item->galeria->pasta . "/thumbs/" . $item->imagem; ?>" alt="image">
+
+                                </a>                           
+                            </div>
+
+                        <?php } ?>  
 
                     </div>
+
+
+                    <?php if ($this->ViewBag->galeria->titulo != "") { ?>  
+
+                        <div class="col-lg-12"> 
+
+                            <a href="<?= HOME_URL ?>galeria/<?= $this->ViewBag->galeria->categoria->url_amigavel ?>/" class="btn btn-default"> << Voltar </a>  
+
+                        </div>
+
+                    <?php } ?> 
                 </div> 
             </div> 
         </div>

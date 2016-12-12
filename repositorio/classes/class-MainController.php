@@ -139,30 +139,46 @@ class MainController extends Login {
                 break;
 
             case "Site":
-                
+
                 require ABSPATH . '/views/_arquivos/includes/header.php';
-                
+
                 require ABSPATH . '/views/_arquivos/includes/menu.php';
-                
+
                 require_once ABSPATH . '/views/' . $nome_controlador . '/' . $nomeview . ".php";
-                
+
                 require ABSPATH . '/views/_arquivos/includes/footer.php';
-                
+
                 break;
 
             case "Form":
 
-                require ABSPATH . '/views/_arquivos/includes/form/header.php';
+                require ABSPATH . '/views/_arquivos/includes/default/header.php';
 
-                require ABSPATH . '/views/_arquivos/includes/form/top-bar.php';
+                require ABSPATH . '/views/_arquivos/includes/default/top-bar.php';
 
-                require ABSPATH . '/views/_arquivos/includes/form/menu.php';
+                require ABSPATH . '/views/_arquivos/includes/default/menu.php';
 
-                require ABSPATH . '/views/_arquivos/includes/form/content.php';
+                require ABSPATH . '/views/_arquivos/includes/default/content.php';
 
                 require_once ABSPATH . '/views/' . $nome_controlador . '/' . $nomeview . ".php";
 
                 require ABSPATH . '/views/_arquivos/includes/form/footer.php';
+
+                break;
+            
+            case "Galeria":
+
+                require ABSPATH . '/views/_arquivos/includes/default/header.php';
+
+                require ABSPATH . '/views/_arquivos/includes/default/top-bar.php';
+
+                require ABSPATH . '/views/_arquivos/includes/default/menu.php';
+
+                require ABSPATH . '/views/_arquivos/includes/default/content.php';
+
+                require_once ABSPATH . '/views/' . $nome_controlador . '/' . $nomeview . ".php";
+
+                require ABSPATH . '/views/_arquivos/includes/galeria/footer.php';
 
                 break;
 

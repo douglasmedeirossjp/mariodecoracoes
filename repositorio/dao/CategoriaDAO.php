@@ -29,6 +29,32 @@ class CategoriaDAO extends DAO{
 
         return $categoria;
     }
+    
+    /**
+     * Buscar uma categoria por Url Amigavel
+     * @param type $url_amigavel
+     * @return \Exception|\Banner
+     */
+    public function BuscarPorUrlAmigavel($url_amigavel) {
+
+        $categoria = new Categoria();
+
+        try {
+
+            $query = $this->db->query(
+                    "SELECT * FROM categoria WHERE url_amigavel = ? LIMIT 1", array($url_amigavel)
+            );
+
+            foreach ($query->fetchAll() as $value) {
+                $categoria->ToObject($value);                
+            }
+            
+        } catch (Exception $ex) {            
+            return $ex;           
+        }
+
+        return $categoria;
+    }
 
    /**
      * 

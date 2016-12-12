@@ -1,16 +1,14 @@
 <?php if (!defined('ABSPATH')) exit; ?>
-            
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> 
-    </div>  
-    <div class="clearfix"></div>
+
+</div>
+</div>
+</div>
+</div>
+</div> 
+</div>  
+<div class="clearfix"></div>
 </div> 
 
-<!-- Javascripts -->
-<!-- Load pace first -->
 <script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/core/pace/pace.min.js"></script>
 <!-- Important javascript libs(put in all pages) -->
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -41,15 +39,6 @@
 <!-- Bootbox confirm dialog for reset postion on panels -->
 <script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/ui/bootbox/bootbox.js"></script>
 <!-- Other plugins ( load only nessesary plugins for every page) -->
-<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/charts/flot/jquery.flot.js"></script>
-<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/charts/flot/jquery.flot.pie.js"></script>
-<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/charts/flot/jquery.flot.resize.js"></script>
-<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/charts/flot/jquery.flot.time.js"></script>
-<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/charts/flot/jquery.flot.growraf.js"></script>
-<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/charts/flot/jquery.flot.categories.js"></script>
-<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/charts/flot/jquery.flot.stack.js"></script>
-<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/charts/flot/jquery.flot.tooltip.min.js"></script>
-<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/charts/flot/date.js"></script>
 <script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/charts/sparklines/jquery.sparkline.js"></script>
 <script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/charts/pie-chart/jquery.easy-pie-chart.js"></script>
 <script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/forms/icheck/jquery.icheck.js"></script>
@@ -57,11 +46,24 @@
 <script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/forms/tinymce/tinymce.min.js"></script>
 <script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/misc/highlight/highlight.pack.js"></script>
 <script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/misc/countTo/jquery.countTo.js"></script>
-<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/ui/weather/skyicons.js"></script>
-<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/ui/notify/jquery.gritter.js"></script>
-<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/ui/calendar/fullcalendar.js"></script>
+<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/misc/gallery/jquery.magnific-popup.min.js"></script>
+<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/misc/mixitup/jquery.mixitup.min.js"></script>
+<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/file/jquery.ui.widget.js"></script>
+<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/file/tmpl.min.js"></script>
+<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/file/load-image.min.js"></script>
+<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/file/canvas-to-blob.min.js"></script>
+<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/file/jquery.blueimp-gallery.min.js"></script>
+<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/file/jquery.iframe-transport.js"></script>
+<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/file/jquery.fileupload.js"></script>
+<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/file/jquery.fileupload-process.js"></script>
+<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/file/jquery.fileupload-image.js"></script>
+<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/file/jquery.fileupload-audio.js"></script>
+<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/file/jquery.fileupload-video.js"></script>
+<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/file/jquery.fileupload-validate.js"></script>
+<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/plugins/file/jquery.fileupload-ui.js"></script> 
 <script src="<?= URL_PAINEL; ?>views/_arquivos/assets/js/jquery.sprFlat.js"></script>
 <script src="<?= URL_PAINEL; ?>views/_arquivos/assets/js/app.js"></script>
-<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/js/pages/dashboard.js"></script> 
+<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/js/pages/gallery.js"></script>
+<script src="<?= URL_PAINEL; ?>views/_arquivos/assets/js/pages/file.js"></script>
 </body>
 </html>
