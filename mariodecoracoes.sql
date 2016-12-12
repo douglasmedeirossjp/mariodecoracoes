@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 05-Dez-2016 às 21:51
+-- Generation Time: 12-Dez-2016 às 23:44
 -- Versão do servidor: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -82,6 +82,26 @@ CREATE TABLE `fotos` (
   `ativo` char(1) COLLATE latin1_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
+--
+-- Extraindo dados da tabela `fotos`
+--
+
+INSERT INTO `fotos` (`id`, `imagem`, `galeria`, `ordem`, `ativo`) VALUES
+(63, '20160302_135829.jpg', 5, 1, 'N'),
+(64, '20160302_135847.jpg', 5, 1, 'N'),
+(65, '20160302_172637.jpg', 5, 1, 'N'),
+(66, '20160302_143445.jpg', 5, 1, 'N'),
+(67, '20160302_135829.jpg', 5, 1, 'S'),
+(68, '20160302_135847.jpg', 5, 1, 'S'),
+(69, '20160302_143445.jpg', 5, 1, 'S'),
+(70, '20160302_172637.jpg', 5, 1, 'S'),
+(71, '20160303_102547.jpg', 5, 1, 'S'),
+(72, '20160303_110542.jpg', 5, 1, 'S'),
+(73, '20160303_113305.jpg', 5, 1, 'N'),
+(74, '20160303_143033.jpg', 5, 1, 'S'),
+(75, '20160303_143145.jpg', 5, 1, 'N'),
+(76, '20160303_143227.jpg', 5, 1, 'S');
+
 -- --------------------------------------------------------
 
 --
@@ -91,6 +111,7 @@ CREATE TABLE `fotos` (
 CREATE TABLE `galeria` (
   `id` int(11) NOT NULL,
   `titulo` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `url_amigavel` varchar(150) COLLATE latin1_general_ci NOT NULL,
   `descricao` text COLLATE latin1_general_ci NOT NULL,
   `pasta` varchar(100) COLLATE latin1_general_ci NOT NULL,
   `ordem` int(11) NOT NULL,
@@ -102,8 +123,9 @@ CREATE TABLE `galeria` (
 -- Extraindo dados da tabela `galeria`
 --
 
-INSERT INTO `galeria` (`id`, `titulo`, `descricao`, `pasta`, `ordem`, `categoria`, `ativo`) VALUES
-(1, 'Casamento Fabiely e Douglas', 'Casamento Fabiely e Douglas - 06/08/2016', 'casamento-fd', 1, 1, 'S');
+INSERT INTO `galeria` (`id`, `titulo`, `url_amigavel`, `descricao`, `pasta`, `ordem`, `categoria`, `ativo`) VALUES
+(5, 'Casamento Fabiely e Douglas', 'casamento-fabiely-e-douglas', '<p>Teste</p>\r\n', 'casamento-fabiely-e-douglas', 1, 3, 'S'),
+(6, 'teste', 'teste', '', 'teste', 1, 3, 'N');
 
 -- --------------------------------------------------------
 
@@ -204,7 +226,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `login`, `nome`, `senha`, `email`, `perfil`, `ultimoLogin`, `tokenLogin`, `validadeToken`, `status`) VALUES
-(1, 'douglas.medeiros', 'Douglas Adriano de Medeiros', '$2a$08$2sGQinTFe3GF/YqAYQ66auL9o6HeFCQryHdqUDvuEVN0J1vdhimii', 'douglas.medeiross@gmail.com', 1, '2016-12-05 17:24:40 em ::1', '$2a$08$PAQB17hT0v9/XEanbs0XZ.hC9Rez8r0faTX/OmvNvf6WkCamgvf4y', '2016-12-05 18:38:34', 'A'),
+(1, 'douglas.medeiros', 'Douglas Adriano de Medeiros', '$2a$08$2sGQinTFe3GF/YqAYQ66auL9o6HeFCQryHdqUDvuEVN0J1vdhimii', 'douglas.medeiross@gmail.com', 1, '2016-12-12 19:18:48 em ::1', '$2a$08$V3tLdc4Ass5ojMKCItI9Xer0gIY8d8UTWuvrfGZroZ4cwDtPAnH66', '2016-12-12 19:43:57', 'A'),
 (2, 'mariodecoracoes', 'Mário Decorações', '$2a$08$2sGQinTFe3GF/YqAYQ66auL9o6HeFCQryHdqUDvuEVN0J1vdhimii', 'contato@mariodecoracoes.com.br', 1, '2016-10-18 23:22:48 em ::1', NULL, NULL, 'A');
 
 --
@@ -277,12 +299,12 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT for table `fotos`
 --
 ALTER TABLE `fotos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 --
 -- AUTO_INCREMENT for table `galeria`
 --
 ALTER TABLE `galeria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `informacao`
 --
