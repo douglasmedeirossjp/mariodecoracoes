@@ -23,7 +23,7 @@
                     </li> 
                 </ul>
                 <ul class="nav navbar-nav pull-right">
-
+                    <!-- 
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown"><i class="br-alarm"></i> <span class="notification">5</span></a>
                         <ul class="dropdown-menu notification-menu right" role="menu">
@@ -59,6 +59,7 @@
                             </li>
                         </ul>
                     </li>
+                    -->
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown">
                             <img class="user-avatar" src="<?= URL_PAINEL; ?>views/_arquivos/assets/img/avatars/48.jpg"><?=$_SESSION["USLogin"];?></a>
@@ -66,9 +67,11 @@
                             <li>
                                 <a href="<?=URL_PAINEL;?>usuario/perfil"><i class="st-user"></i> Perfil</a>
                             </li> 
+                            <!-- 
                             <li>
                                 <a href="<?=URL_PAINEL;?>usuario/configuracao"><i class="st-settings"></i> Configuração</a>
                             </li>
+                            -->
                             <li>
                                 <a href="<?=URL_PAINEL;?>login/sair"><i class="im-exit"></i> Sair</a>
                             </li>

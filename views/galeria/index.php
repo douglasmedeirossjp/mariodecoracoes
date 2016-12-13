@@ -60,7 +60,7 @@
 
                         <?php foreach ($this->ViewBag->galeria->fotos as $item) { ?> 
 
-                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" data-my-order="1" style="display: inline-block;">
+                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" data-my-order="1">
 
                                 <a href="<?= HOME_URL . "repositorio/arquivos/enviados/galeria/" . $item->galeria->categoria->url_amigavel . "/" . $item->galeria->pasta . "/" . $item->imagem; ?>" class="gallery-image-open thumbnail">
 
@@ -74,18 +74,18 @@
                     </div>
 
 
-                    <?php if ($this->ViewBag->galeria->titulo != "") { ?>  
-
-                        <div class="col-lg-12"> 
-
-                            <a href="<?= HOME_URL ?>galeria/<?= $this->ViewBag->galeria->categoria->url_amigavel ?>/" class="btn btn-default"> << Voltar </a>  
-
-                        </div>
-
-                    <?php } ?> 
                 </div> 
             </div> 
         </div>
+        <?php if ($this->ViewBag->galeria->titulo != "") { ?>  
+
+            <div class="col-lg-12"> 
+
+                <a href="<?= HOME_URL ?>galeria/<?= $this->ViewBag->galeria->categoria->url_amigavel ?>/" class="btn btn-default"> << Voltar </a>  
+
+            </div>
+
+        <?php } ?> 
     </div> 
 </div> 
 

@@ -1,4 +1,6 @@
-<?php if (!defined('ABSPATH')) exit; ?>
+<?php if (!defined('ABSPATH')) exit;
+require_once ABSPATH_REPOSITORIO . '/funcionalidades/Status.php';
+?>
 
 <a href="<?=URL_PAINEL;?>categoria/cadastrar" class="btn btn-primary">Cadastrar</a> <hr />
 
@@ -29,7 +31,7 @@
                 <?=$item->url_amigavel;?>
             </td>
             <td>
-                <?=$item->ativo;?>
+                <?=MostrarTituloSimNao($item->ativo);?>
             </td>
             <td>                
                 <a href="<?=URL_PAINEL;?>categoria/editar/<?=$item->id;?>" class="btn btn-alt btn-primary"> Editar </a>

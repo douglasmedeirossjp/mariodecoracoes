@@ -11,7 +11,7 @@ function CopiarDiretorio($dirFont, $dirDest) {
                 $pathIn = "$dirFont/$arq";
                 $pathOut = "$dirDest/$arq";
                 if (is_dir($pathIn)) {
-                    self::copiaDir($pathIn, $pathOut);
+                    CopiarDiretorio($pathIn, $pathOut);
                 } elseif (is_file($pathIn)) {
                     copy($pathIn, $pathOut);
                 }

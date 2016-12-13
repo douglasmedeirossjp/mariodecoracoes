@@ -1,4 +1,6 @@
-<?php if (!defined('ABSPATH')) exit; ?>
+<?php if (!defined('ABSPATH')) exit; 
+require_once ABSPATH_REPOSITORIO . '/funcionalidades/Status.php';
+?>
   
 <table class="table table-striped">
     <thead>
@@ -27,7 +29,7 @@
                 <?=$item->url_amigavel;?>
             </td>
             <td>
-                <?=$item->ativo;?>
+                <?=MostrarTituloSimNao($item->ativo);?>
             </td>
             <td>                
                 <a href="<?=URL_PAINEL;?>pagina/editar/<?=$item->id;?>" class="btn btn-alt btn-primary"> Editar </a>

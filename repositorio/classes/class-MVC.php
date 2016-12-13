@@ -111,8 +111,8 @@ class MVC {
         $this->controlador = new $this->controlador($this->parametros, $this->controlador);
 
         // Remove caracteres inválidos do nome da ação (método)
-        $this->acao = preg_replace('/[^a-zA-Z]/i', '', $this->acao);
-        
+        $this->acao = preg_replace('/[^a-zA-Z0-9-]/i', '', $this->acao);
+       
        // echo $this->acao;
 
         // Se o método indicado existir, executa o método e envia os parâmetros        

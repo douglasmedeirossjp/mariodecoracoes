@@ -38,6 +38,11 @@ class GaleriaController extends MainController {
                 $this->ViewBag->galeria = $galeria; 
                 
             }
+        }else{
+            
+            // se não tem categoria selecionada, buscar últimas 10 galerias cadastradas:
+             
+            $this->ViewBag->galerias = $dao_galeria->BuscarTopAtivos();
         }
 
         $this->carregarView("index", "Site");

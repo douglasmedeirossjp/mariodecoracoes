@@ -71,7 +71,7 @@ $(document).ready(function() {
         },
         sideNav : {
             hover: false, //shows subs on hover or click
-            showNotificationNumbers: 'onhover',//show how many elements menu have with notifcation style values - always, onhover, never
+            showNotificationNumbers: 'never',//show how many elements menu have with notifcation style values - always, onhover, never
             showArrows: true,//show arrow to indicate sub
             sideNavArrowIcon: 'en-arrow-down5', //arrow icon for navigation
             showIndicator: false,//show indicator when hover links

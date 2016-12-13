@@ -10,17 +10,14 @@
                     </button>
                 </form>
             </li>
-            <li><a href="<?= URL_PAINEL ?>">Painel <i class="im-screen"></i></a>
+            <li>
+                <a href="<?= URL_PAINEL ?>">Painel <i class="im-screen"></i></a>
             </li> 
-            <li><a href="<?= URL_PAINEL ?>banner/"><i class="im-images"></i> Banner </a> 
+            <li>
+                <a href="<?= URL_PAINEL ?>banner/"><i class="im-images"></i> Banner </a> 
             </li>
-            <li><a href="#"><i class="im-image"></i> Galeria de Foto </a>
-                <ul class="nav sub"> 
-                    <li><a href="<?= URL_PAINEL ?>galeria/"><i class="en-list"></i> Listar Galerias</a>
-                    </li>
-                    <li><a href="<?= URL_PAINEL ?>categoria"><i class="en-list"></i> Categorias </a>
-                    </li>
-                </ul>
+            <li>
+                <a href="<?= URL_PAINEL ?>galeria/"><i class="im-image"></i> Galeria de Foto </a> 
             </li>
             <li>
                 <a href="<?= URL_PAINEL ?>pagina/">Páginas <i class="st-files"></i></a> 

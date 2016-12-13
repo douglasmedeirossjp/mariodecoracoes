@@ -119,6 +119,37 @@ class GaleriaDAO extends DAO {
         return $lista;
     }
     
+     /**
+     * 
+     * @return \Exception|\ArrayObject
+     */
+    public function BuscarTopAtivos($qtde = 10) {
+
+        $lista = new ArrayObject();
+
+        try {
+
+            $query = $this->db->query("SELECT * FROM galeria WHERE ativo = 'S' ORDER BY id DESC LIMIT 0, $qtde ");
+
+            foreach ($query->fetchAll() as $value) {
+
+                $galeria = new Galeria();
+                $galeria->ToObject($value);
+
+                $dao = new CategoriaDAO();
+                $galeria->categoria = $dao->BuscarPorID($galeria->categoria);
+                
+                $galeria->fotocapa = $this->BuscarCapaPorGaleria($galeria->id);
+
+                $lista->append($galeria);
+            }
+        } catch (Exception $ex) {
+            return $ex;
+        }
+
+        return $lista;
+    }
+    
      public function BuscarTodosAtivosPorCategoria($id) {
 
         $lista = new ArrayObject();

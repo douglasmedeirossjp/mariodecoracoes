@@ -31,25 +31,35 @@
             </div>
         </div> 
     </form>
-    
+
     <div class="gallery"> 
-    <div class="gallery-inner">
-        <?php foreach ($this->ViewBag->lista as $item) { ?>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mix sea">
-                <a href="#" class="thumbnail">
-                    <img src="<?= HOME_URL . "repositorio/arquivos/enviados/galeria/" . $item->galeria->categoria->url_amigavel . "/" . $item->galeria->pasta . "/thumbs/" . $item->imagem ?>" alt="image" width="260" />
-                </a>
-                <div class="gallery-image-controls">
-                    <div class="action-btn">
-                        <a class="gallery-image-open btn btn-primary btn-round tipB" title="Abrir imagem" href="<?= HOME_URL . "repositorio/arquivos/enviados/galeria/" . $item->galeria->categoria->url_amigavel . "/" . $item->galeria->pasta . "/" . $item->imagem ?>"><i class="ec-search"></i></a>
-                        <a class="gallery-image-delete btn btn-primary btn-round tipB" href="#" onclick="DeletarFoto(<?=$item->id;?>)" title="Deletar"><i class="ec-trashcan"></i></a>
+        <div class="gallery-inner">
+            <?php foreach ($this->ViewBag->lista as $item) { ?>
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mix sea">
+                    <a href="#" class="thumbnail">
+                        <img src="<?= HOME_URL . "repositorio/arquivos/enviados/galeria/" . $item->galeria->categoria->url_amigavel . "/" . $item->galeria->pasta . "/thumbs/" . $item->imagem ?>" alt="image" width="260" />
+                    </a>
+                    <div class="gallery-image-controls">
+                        <div class="action-btn">
+                            <a class="gallery-image-open btn btn-primary btn-round tipB" title="Abrir imagem" href="<?= HOME_URL . "repositorio/arquivos/enviados/galeria/" . $item->galeria->categoria->url_amigavel . "/" . $item->galeria->pasta . "/" . $item->imagem ?>"><i class="ec-search"></i></a>
+                            <a class="gallery-image-delete btn btn-primary btn-round tipB" href="#" onclick="DeletarFoto(<?= $item->id; ?>)" title="Deletar"><i class="ec-trashcan"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        <?php } ?> 
+            <?php } ?> 
+        </div>
     </div>
-</div>
-    
+
+    <div class="form-group">         
+        <div class="col-lg-6 col-md-6 text-left">
+            <a href="<?= URL_PAINEL . "galeria/editar/" . $this->ViewBag->id; ?>" class="btn btn-primary">Voltar</a>
+        </div>
+         <div class="col-lg-6 col-md-6 text-right">
+            <a href="<?= URL_PAINEL . "galeria/" . $this->ViewBag->id; ?>" class="btn btn-primary">Concluir</a>
+        </div>
+    </div>
+
+
 </div> 
 <script src="//code.jquery.com/jquery-1.8.2.min.js"></script>
 <script src="//ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/jquery-ui.js"></script>
@@ -131,64 +141,64 @@
 
 <script>
 
-    $(document).ready(function () {
+                                $(document).ready(function () {
 
-        $('#fileupload_galeria').fileupload({
-            disableImageResize: false,
-            autoUpload: false,
-            url: '<?= URL_PAINEL ?>galeria/Upload/<?=$this->ViewBag->id;?>',
-            success: function (retorno) {
-                if(retorno == true) {
-                    setTimeout(function () {
-                        window.location.reload(1);
-                    },1);
-                }
-            }
-        });
-        $('#fileupload_galeria').fileupload('option', {
-            url: $('#fileupload_galeria').fileupload('option', 'url'),
-            maxFileSize: 1048576, // 1 mb
-            acceptFileTypes: /(\.|\/)(jpe?g)$/i,
-            maxNumberOfFiles: 10,
-        });
-    });
+                                    $('#fileupload_galeria').fileupload({
+                                        disableImageResize: false,
+                                        autoUpload: false,
+                                        url: '<?= URL_PAINEL ?>galeria/Upload/<?= $this->ViewBag->id; ?>',
+                                                    success: function (retorno) {
+                                                        if (retorno == true) {
+                                                            setTimeout(function () {
+                                                                window.location.reload(1);
+                                                            }, 1);
+                                                        }
+                                                    }
+                                                });
+                                                $('#fileupload_galeria').fileupload('option', {
+                                                    url: $('#fileupload_galeria').fileupload('option', 'url'),
+                                                    maxFileSize: 1048576, // 1 mb
+                                                    acceptFileTypes: /(\.|\/)(jpe?g)$/i,
+                                                    maxNumberOfFiles: 10,
+                                                });
+                                            });
 
-    function DeletarFoto(id) {
+                                            function DeletarFoto(id) {
 
-        bootbox.confirm({
-            message: "Tem certeza que deseja remover a foto?",
-            title: "Remover Foto?",
-            buttons: {
-                'cancel': {
-                    label: 'Não'
-                },
-                'confirm': {
-                    label: 'Sim'
-                }
-            },
-            callback: function (result) {
-                if (result){
-                    $.ajax({
-                        type: "GET",
-                        url: '<?= URL_PAINEL ?>galeria/removerfoto/',
-                        data: { id: id },
-                        success: function (retorno) {
-                            if(retorno == true){
-                                setTimeout(function () {
-                                    window.location.reload(1);
-                                }, 1);
-                            }else{
-                                alert("Erro ao deletar a foto, tente novamente!");
-                            }
-                        }
-                    });
-                }
-            }
-        });
-    } 
-    
-    
-    
+                                                bootbox.confirm({
+                                                    message: "Tem certeza que deseja remover a foto?",
+                                                    title: "Remover Foto?",
+                                                    buttons: {
+                                                        'cancel': {
+                                                            label: 'Não'
+                                                        },
+                                                        'confirm': {
+                                                            label: 'Sim'
+                                                        }
+                                                    },
+                                                    callback: function (result) {
+                                                        if (result) {
+                                                            $.ajax({
+                                                                type: "GET",
+                                                                url: '<?= URL_PAINEL ?>galeria/removerfoto/',
+                                                                data: {id: id},
+                                                                success: function (retorno) {
+                                                                    if (retorno == true) {
+                                                                        setTimeout(function () {
+                                                                            window.location.reload(1);
+                                                                        }, 1);
+                                                                    } else {
+                                                                        alert("Erro ao deletar a foto, tente novamente!");
+                                                                    }
+                                                                }
+                                                            });
+                                                        }
+                                                    }
+                                                });
+                                            }
+
+
+
 
 </script>
 
