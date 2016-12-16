@@ -15,7 +15,19 @@ class HomeController extends MainController {
         $dao_info = new InformacaoDAO();        
         $this->ViewBag->informacao = $dao_info->BuscarInformacao(); 
 
-        $this->carregarView("index", "Site");
+        $this->carregarView("index", "SiteManutencao");
+        
+    } 
+    
+    public function index2() {
+ 
+        $dao = new BannerDAO(); 
+        $this->ViewBag->banners = $dao->BuscarTodosAtivos();
+        
+        $dao_info = new InformacaoDAO();        
+        $this->ViewBag->informacao = $dao_info->BuscarInformacao(); 
+
+        $this->carregarView("index2", "Site");
         
     } 
 }

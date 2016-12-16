@@ -44,7 +44,8 @@ $("#validate").validate({
 		select2: "required",
 		password: {
 			required: true,
-			minlength: 5
+			minlength: 5,
+                        equalTo: "#confirm_password"
 		},
 		confirm_password: {
 			required: true,
@@ -104,13 +105,14 @@ $("#validate").validate({
 	},
 	messages: {
 		password: {
-			required: "Please provide a password",
-			minlength: "Your password must be at least 5 characters long"
+			required: "Informe uma senha.",
+			minlength: "A senha deve ter pelo menos 5 caracteres",
+                        equalTo: "As senhas não conferem."
 		},
 		confirm_password: {
-			required: "Please provide a password",
-			minlength: "Your password must be at least 5 characters long",
-			equalTo: "Please enter the same password as above"
+			required: "Confirme a senha.",
+			minlength: "A senha deve ter pelo menos 5 caracteres",
+			equalTo: "As senhas não conferem."
 		},
 		agree: "Please accept our policy",
 		textarea: "Write some info for you",

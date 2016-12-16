@@ -40,7 +40,7 @@ class UsuarioDAO extends DAO {
         $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
         if (!empty($fetch)) {
-
+             
             if ($this->phpass->CheckPassword($usuario->getSenha(), $fetch['senha'])) {
 
                 date_default_timezone_set('America/Sao_Paulo');
@@ -114,6 +114,16 @@ class UsuarioDAO extends DAO {
 
             $this->db->query(
                     "UPDATE usuario SET tokenLogin = null, validadeToken = null WHERE login = ?", array($_SESSION["USLogin"])
+            );
+        }
+    }
+    
+    
+     public function AlterarSenhaUsuario($senha) {
+
+        if (!empty($_SESSION["USLogin"])) { 
+            $this->db->query(
+                    "UPDATE usuario SET senha = ? WHERE login = ?", array($senha, $_SESSION["USLogin"])
             );
         }
     }

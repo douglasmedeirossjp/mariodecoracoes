@@ -1,69 +1,45 @@
-<?php if (!defined('ABSPATH')) exit; ?>
-
-<header id="myCarousel" class="carousel slide">
-    <ol class="carousel-indicators">
-        <?php
-        $cont = 0;
-        foreach ($this->ViewBag->banners as $key => $value) {
-            ?>            
-            <li data-target="#myCarousel" data-slide-to="<?= $cont; ?>" <?php
-            if ($cont == 0) {
-                echo "class='active'";
-            }
-            ?>></li>
-                <?php
-                $cont++;
-            }
-            ?>  
-    </ol> 
-    <div class="carousel-inner"> 
-        <?php
-        $cont = 0;
-        foreach ($this->ViewBag->banners as $key => $value) {
-            ?>
-            <div class="item <?php
-            if ($cont == 0) {
-                echo "active";
-            }
-            ?>">
-                     <?php if ($value->link != "" && $value->link != "#") { ?>
-                    <a href="<?= $value->link; ?>">
-                        <div class="fill" style="background-image:url('<?= $value->imagem; ?>');" title="<?= $value->titulo; ?>"></div>
-                    </a> 
-                <?php } else { ?> 
-                    <div class="fill" style="background-image:url('<?= $value->imagem; ?>');" title="<?= $value->titulo; ?>"></div>
-                <?php } ?> 
-            </div>
-            <?php
-            $cont++;
-        }
-        ?>                    
-    </div>
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-        <span class="icon-prev"></span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-        <span class="icon-next"></span>
-    </a>
-</header> 
+<?php
+if (!defined('ABSPATH'))
+    exit;
+require_once ABSPATH_REPOSITORIO . '/dao/InformacaoDAO.php';
+$dao = new InformacaoDAO();
+$informacao = $dao->BuscarInformacao();
+?> 
+ 
 <div class="container"> 
-    <div class="row"> 
-        <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12 text-center tipo-evento">
-            <img src="<?= HOME_URL; ?>views/_arquivos/images/bg-casamentos.png" width="250" />
-        </div>
-        <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12  text-center tipo-evento">
-            <img src="<?= HOME_URL; ?>views/_arquivos/images/bg-15anos.png" width="250" />
-        </div>
-        <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12 text-center tipo-evento">
-            <img src="<?= HOME_URL; ?>views/_arquivos/images/bg-eventos.png" width="250" />
-        </div>
+    <div class="row">         
+        <h3 class="page-header text-center">Novo site em desenvolvimento.</h3> 
     </div> 
-</div> 
+    <div class="row conteudo">    
+        <p class="text-center"> Entre em contato conosco através das informações abaixo: </p>
+         
+        <div class="col-lg-12 col-md-12"> 
+            <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12 endereco-contato">
 
-<script src="<?= HOME_URL; ?>views/_arquivos/js/jquery.js"></script>
-<script src="<?= HOME_URL; ?>views/_arquivos/js/bootstrap.min.js"></script>
-<script>
-    $('.carousel').carousel({
-        interval: 5000
-    });
-</script> 
+                <img src="<?= HOME_URL; ?>views/_arquivos/images/icone-endereco.png" width="35" align="left" />
+                <?= $informacao->endereco; ?>, <?= $informacao->numero; ?> <br />
+                <?= $informacao->bairro; ?> - <?= $informacao->cidade; ?> - <?= $informacao->estado; ?>   
+
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12 horario-contato">
+
+                <img src="<?= HOME_URL; ?>views/_arquivos/images/icone-horario.png" width="35" align="left" />
+
+                HORÁRIO DE ATENDIMENTO: <br />
+                <?= $informacao->horario_atendimento; ?> 
+
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12 telefone-contato">
+                
+                <img src="<?= HOME_URL; ?>views/_arquivos/images/icone-contato.png" width="35" align="left" />
+
+                <?= $informacao->ddd; ?> <b><?= $informacao->telefone; ?></b><br />                 
+                <?= $informacao->email; ?>
+
+            </div>   
+        </div>
+    </div>
+</div> 
+<div class="maps">
+    <?= $informacao->googlemaps; ?>
+</div>

@@ -5,7 +5,7 @@ if (!defined('ABSPATH'))
     exit;
 
 // Inicia a sessão
-session_start();
+@session_start();
 
 // Verifica o modo para debugar
 if (!defined('DEBUG') || DEBUG === false) {

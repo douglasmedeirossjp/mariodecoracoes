@@ -95,7 +95,7 @@ class DB {
                 $campos = implode(', ', $colunas);
                 // remove a última vírgula que sobra
                 $parametros = substr($parametros, 0, -2);
-                $query = $this->query("INSERT INTO " . $tabela . " (" . $campos . ") VALUES ($parametros)", $valores);
+                $query = $this->query("INSERT INTO " . strtolower($tabela) . " (" . $campos . ") VALUES ($parametros)", $valores);
 
                 if ($query) {
                     if ($this->pdo->lastInsertId()) {
@@ -148,7 +148,7 @@ class DB {
 
                 $colunas_update = substr($colunas_update, 0, -2);
 
-                $query = $this->query("UPDATE " . $tabela . " SET " . $colunas_update . " WHERE " . $colunas[0] . " = ? ", $valores_update);
+                $query = $this->query("UPDATE " . strtolower($tabela) . " SET " . $colunas_update . " WHERE " . $colunas[0] . " = ? ", $valores_update);
 
                 if ($query) {
                     return true;

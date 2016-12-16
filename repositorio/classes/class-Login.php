@@ -58,6 +58,7 @@ class Login {
     public function registrar_sessao(Usuario $usuario) {
         
         // registra sessão
+        $_SESSION["USID"] = $usuario->getId();
         $_SESSION["USLogin"] = $usuario->getLogin();
         $_SESSION["Logado"] = true;
         $_SESSION["_TokenLogin"] = $usuario->getTokenLogin();

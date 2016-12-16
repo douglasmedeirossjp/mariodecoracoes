@@ -24,7 +24,7 @@ if($server == "localhost"){
 	$url = explode("/", $endereco);
 	$baseUrl = "http://" . $server  ."/". $url[1] . "/repositorio/arquivos/enviados/ckfinder/";	
 }else{
-	$baseUrl = "http://" . $server . "/repositorio/arquivos/enviados/ckfinder/";
+	$baseUrl = "http://" . $server . "/site/repositorio/arquivos/enviados/ckfinder/";
 }
 
 /* ============================ General Settings ======================================= */
@@ -37,7 +37,7 @@ $config = array();
 
 $config['authentication'] = function () {
     
-    session_start();
+    @session_start();
     
     // validação painel          
     if (!empty($_SESSION["Logado"])) {

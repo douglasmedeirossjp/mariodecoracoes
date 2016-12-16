@@ -149,6 +149,16 @@ class MainController extends Login {
                 require ABSPATH . '/views/_arquivos/includes/footer.php';
 
                 break;
+            
+            case "SiteManutencao":
+
+                require ABSPATH . '/views/_arquivos/includes/header.php';
+            
+                require_once ABSPATH . '/views/' . $nome_controlador . '/' . $nomeview . ".php";
+                
+                require ABSPATH . '/views/_arquivos/includes/footer.php';
+            
+                break;
 
             case "Form":
 

@@ -62,10 +62,11 @@
                     -->
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown">
-                            <img class="user-avatar" src="<?= URL_PAINEL; ?>views/_arquivos/assets/img/avatars/48.jpg"><?=$_SESSION["USLogin"];?></a>
+                          <i class="fa-user"></i>  
+                        </a>
                         <ul class="dropdown-menu right" role="menu">
                             <li>
-                                <a href="<?=URL_PAINEL;?>usuario/perfil"><i class="st-user"></i> Perfil</a>
+                                <a href="<?=URL_PAINEL;?>usuario/alterarsenha"><i class="st-user"></i> Alterar Senha</a>
                             </li> 
                             <!-- 
                             <li>

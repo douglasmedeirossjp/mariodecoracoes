@@ -58,7 +58,7 @@ class MVC {
         // Obtém os valores do controlador, ação e parâmetros da URL.
         // E configura as propriedades da classe.
         $this->get_url_data();
-
+         
         /**
          * Verifica se o controlador existe. Caso contrário, adiciona o
          * controlador padrão (controllers/home-controller.php) e chama o método index().
@@ -106,15 +106,13 @@ class MVC {
             require_once ABSPATH . $this->not_found;
             return;
         } // class_exists
-        
         // Cria o objeto da classe do controlador e envia os parâmentros
         $this->controlador = new $this->controlador($this->parametros, $this->controlador);
 
         // Remove caracteres inválidos do nome da ação (método)
         $this->acao = preg_replace('/[^a-zA-Z0-9-]/i', '', $this->acao);
-       
-       // echo $this->acao;
 
+        // echo $this->acao;
         // Se o método indicado existir, executa o método e envia os parâmetros        
         //Exemplo: Pagina/Index        
         if (method_exists($this->controlador, $this->acao)) {
@@ -128,7 +126,7 @@ class MVC {
             $this->controlador->index($this->parametros);
             return;
         }
- 
+
         //Se existe a controladora página, executa o método 'index' e passa por parametro a acao
         // Exemplo: Pagina/Empresa  (index.php?pagina=empresa)
         if (method_exists($this->controlador, 'index')) {
@@ -167,9 +165,7 @@ class MVC {
 
             // Cria um array de parâmetros
             $path = explode('/', $path);
-
-
-
+ 
             // Configura as propriedades
             $this->controlador = chk_array($path, 0);
             $this->controlador .= 'Controller';
@@ -183,21 +179,23 @@ class MVC {
                 // Os parâmetros sempre virão após a ação
                 $this->parametros = array_values($path);
             }
-
-
+ 
+            $this->controlador = ucwords($this->controlador);
+            
             // DEBUG
-            //
-			// echo $this->controlador . '<br>';
-            // echo $this->acao        . '<br>';
-            // echo '<pre>';
-            // print_r( $this->parametros );
-            // echo '</pre>';
+            if (DEBUG == TRUE) { 
+              /*  echo $this->controlador . '<br>';
+                echo $this->acao . '<br>';
+                echo '<pre>';
+                print_r($this->parametros);
+                echo '</pre>';*/
+            }
         }
     }
 
     public function go_to($url) {
         echo '<meta http-equiv="Refresh" content="0; url=' . $url . '">';
-        echo '<script type="text/javascript">window.location.href = "' . $url . '";</script>';
+        //echo '<script type="text/javascript">window.location.href = "' . $url . '";</script>';
     }
 
 }

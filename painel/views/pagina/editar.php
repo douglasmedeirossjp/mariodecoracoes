@@ -34,7 +34,7 @@ $pagina = $this->ViewBag->pagina;
     </div>
 
     <div class="form-group">
-        <label class="col-lg-2 control-label">Título Menu:</label>
+        <label class="col-lg-2 col-md-2 control-label">Título Menu:</label>
         <div class="col-lg-8 col-md-8">
             <input type="text" name="titulo_menu" id="titulo_menu" class="form-control" required="required" maxlength="50"  value="<?= $pagina->titulo_menu; ?>">        
         </div>
